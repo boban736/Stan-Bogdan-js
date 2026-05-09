@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Система инвентаря</title>
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="src/index.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>Система инвентаря</h1>
+
+    <div class="form-container">
+      <h2>Добавить предмет</h2>
+      <form id="item-form">
+        <label for="name">Название:</label>
+        <input type="text" id="name" required>
+
+        <label for="category">Категория:</label>
+        <select id="category" required>
+          <option value="armor">Armor (Броня)</option>
+          <option value="weapon">Weapon (Оружие)</option>
+          <option value="potion">Potion (Зелье)</option>
+        </select>
+
+        <label for="rarity">Редкость:</label>
+        <select id="rarity" required>
+          <option value="common">Common (Обычный)</option>
+          <option value="uncommon">Uncommon (Необычный)</option>
+          <option value="rare">Rare (Редкий)</option>
+          <option value="legendary">Legendary (Легендарный)</option>
+        </select>
+
+        <div id="damage-container" style="display: none;">
+          <label for="damage">Урон (для оружия):</label>
+          <input type="number" id="damage" min="1" max="1000">
+        </div>
+
+        <label for="description">Описание:</label>
+        <textarea id="description" required></textarea>
+
+        <button type="submit">Добавить</button>
+      </form>
+      <div id="form-error" class="error"></div>
+    </div>
+
+    <div class="inventory-info">
+      <p>Всего предметов: <span id="total-items">0</span></p>
+    </div>
+
+    <table id="inventory-table">
+      <thead>
+        <tr>
+          <th>Название</th>
+          <th>Категория</th>
+          <th>Редкость</th>
+          <th>Урон</th>
+          <th>Действие</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Сюда добавляются предметы -->
+      </tbody>
+    </table>
+
+    <div id="item-details" class="details-box">
+      <h3>Информация о предмете</h3>
+      <p id="details-text">Наведите курсор на предмет в таблице, чтобы увидеть описание.</p>
+    </div>
+  </div>
+</body>
+</html>
